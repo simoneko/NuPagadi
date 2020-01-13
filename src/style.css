@@ -1,0 +1,11 @@
+GridPane {
+    -fx-background-color: white;
+}
+
+Label {
+    -fx-text-fill: red;
+    -fx-font-size: 24;
+    -fx-background-color: gray;
+    -fx-graphic: url("./wolf-left.JPG");
+
+}
