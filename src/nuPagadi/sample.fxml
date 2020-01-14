@@ -3,7 +3,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="nuPagadi.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Label  />
-</GridPane>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane fx:controller="nuPagadi.Controller"
+            xmlns:fx="http://javafx.com/fxml" >
+    <left>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+            <Button GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="leftUpButton" onAction="#handleButtonClick" />
+            <Button GridPane.columnIndex="0" GridPane.rowIndex="25" fx:id="leftDownButton" onAction="#handleButtonClick" />
+        </GridPane>
+    </left>
+
+    <center>
+        <Label fx:id="wolf"  />
+    </center>
+
+    <right>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+            <Button GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="rightUpButton" onAction="#handleButtonClick" />
+            <Button GridPane.columnIndex="0" GridPane.rowIndex="25" fx:id="rightDownButton" onAction="#handleButtonClick" />
+        </GridPane>
+    </right>
+</BorderPane>
