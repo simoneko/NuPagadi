@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <BorderPane fx:controller="nuPagadi.Controller"
             xmlns:fx="http://javafx.com/fxml" >
     <left>
@@ -16,7 +19,18 @@
     </left>
 
     <center>
-        <Label fx:id="wolf"  />
+        <AnchorPane fx:id="anch" >
+            <Rectangle fx:id="rectangleUpLeft" width="200" height="20" rotate="30"
+                       AnchorPane.topAnchor="95" AnchorPane.leftAnchor="80" />
+            <Rectangle fx:id="rectangleUpRight" width="200" height="20" rotate="-30"
+                       AnchorPane.topAnchor="95" AnchorPane.rightAnchor="80" />
+            <Rectangle fx:id="rectangleDownLeft" width="180" height="20" rotate="30"
+                       AnchorPane.topAnchor="210" AnchorPane.leftAnchor="70" />
+            <Rectangle fx:id="rectangleDownRight" width="180" height="20" rotate="-30"
+                       AnchorPane.topAnchor="210" AnchorPane.rightAnchor="70" />
+            <Label fx:id="wolfLabel" AnchorPane.topAnchor="165" AnchorPane.leftAnchor="251"  />
+
+        </AnchorPane>
     </center>
 
     <right>

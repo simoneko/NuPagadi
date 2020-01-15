@@ -2,7 +2,7 @@ BorderPane {
     -fx-background-color: white;
 }
 
-#wolf {
+#wolfLabel {
     -fx-graphic: url("./sprites/wolf-left-down.png");
 
 }
@@ -26,5 +26,11 @@ Button:hover {
 Button:pressed {
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
+}
+
+Rectangle {
+    -fx-arc-width: 20;
+    -fx-arc-height: 20;
+    -fx-fill: black;
 }
 
