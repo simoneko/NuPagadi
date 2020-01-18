@@ -8,27 +8,29 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <BorderPane fx:controller="nuPagadi.Controller"
             xmlns:fx="http://javafx.com/fxml" >
     <left>
         <GridPane alignment="center" hgap="10" vgap="10">
             <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
             <Button GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="leftUpButton" onAction="#handleButtonClick" />
-            <Button GridPane.columnIndex="0" GridPane.rowIndex="25" fx:id="leftDownButton" onAction="#handleButtonClick" />
+            <Button GridPane.columnIndex="0" GridPane.rowIndex="20" fx:id="leftDownButton" onAction="#handleButtonClick" />
         </GridPane>
     </left>
 
     <center>
         <AnchorPane fx:id="anch" >
             <Rectangle fx:id="rectangleUpLeft" width="200" height="20" rotate="30"
-                       AnchorPane.topAnchor="95" AnchorPane.leftAnchor="80" />
+                       AnchorPane.topAnchor="105" AnchorPane.leftAnchor="80" />
             <Rectangle fx:id="rectangleUpRight" width="200" height="20" rotate="-30"
-                       AnchorPane.topAnchor="95" AnchorPane.rightAnchor="80" />
+                       AnchorPane.topAnchor="105" AnchorPane.rightAnchor="80" />
             <Rectangle fx:id="rectangleDownLeft" width="180" height="20" rotate="30"
-                       AnchorPane.topAnchor="210" AnchorPane.leftAnchor="70" />
+                       AnchorPane.topAnchor="220" AnchorPane.leftAnchor="70" />
             <Rectangle fx:id="rectangleDownRight" width="180" height="20" rotate="-30"
-                       AnchorPane.topAnchor="210" AnchorPane.rightAnchor="70" />
-            <Label fx:id="wolfLabel" AnchorPane.topAnchor="165" AnchorPane.leftAnchor="251"  />
+                       AnchorPane.topAnchor="220" AnchorPane.rightAnchor="70" />
+
+            <Label fx:id="wolfLabel" AnchorPane.topAnchor="175" AnchorPane.leftAnchor="251"  />
 
         </AnchorPane>
     </center>
@@ -37,7 +39,17 @@
         <GridPane alignment="center" hgap="10" vgap="10">
             <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
             <Button GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="rightUpButton" onAction="#handleButtonClick" />
-            <Button GridPane.columnIndex="0" GridPane.rowIndex="25" fx:id="rightDownButton" onAction="#handleButtonClick" />
+            <Button GridPane.columnIndex="0" GridPane.rowIndex="20" fx:id="rightDownButton" onAction="#handleButtonClick" />
         </GridPane>
     </right>
+
+    <bottom >
+        <HBox alignment="CENTER" spacing="50">
+            <padding><Insets top="5" bottom="5"/></padding>
+            <Label fx:id="timeLabel" text="Time: " />
+            <Label text="Eggs: " />
+            <Label fx:id="lifes" text="Lifes: " />
+        </HBox>
+    </bottom>
+
 </BorderPane>

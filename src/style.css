@@ -34,3 +34,15 @@ Rectangle {
     -fx-fill: black;
 }
 
+#bottom{
+
+}
+
+HBox Label {
+    -fx-font-family: "sans-serif";
+    -fx-font-size: 24;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-pref-width: 200px;
+}
+
