@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <BorderPane fx:controller="nuPagadi.Controller"
-            xmlns:fx="http://javafx.com/fxml" >
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="container">
     <left>
         <GridPane alignment="center" hgap="10" vgap="10">
             <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
@@ -46,9 +47,9 @@
     <bottom >
         <HBox alignment="CENTER" spacing="50">
             <padding><Insets top="5" bottom="5"/></padding>
-            <Label fx:id="timeLabel" text="Time: " />
-            <Label text="Eggs: " />
-            <Label fx:id="lifes" text="Lifes: " />
+            <Label alignment="CENTER" fx:id="timeLabel" text="Time: " />
+            <Label alignment="CENTER" fx:id="eggsLabel" text="Eggs: 0" />
+            <Label alignment="CENTER" fx:id="lifes" text="Lifes: " />
         </HBox>
     </bottom>
 

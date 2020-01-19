@@ -1,6 +1,6 @@
 package nuPagadi;
 
-public enum WolfPosition {
+public enum Position {
 
     LEFT_UP,
     LEFT_DOWN,
