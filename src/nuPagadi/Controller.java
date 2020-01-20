@@ -8,19 +8,26 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.swing.*;
 import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -39,6 +46,8 @@ public class Controller {
     private BorderPane container;
     @FXML
     private Label eggsLabel;
+    @FXML
+    private StackPane root;
 
 
     GameControl game = new GameControl();
@@ -76,14 +85,50 @@ public class Controller {
         wolfLabel.setStyle(wolf.getWolfStyle());
     }
 
+    private void newGame(){
+        container.setVisible(true);
+        uiRefresh.setCycleCount((Timeline.INDEFINITE));
+        uiRefresh.play();
+        GameControl.spawnEggs(container);
+    }
+
+    private void welcomeScreen(){
+        Button newGameButton = new Button("New Game");
+        Button highScoresButton = new Button("High Scores");
+        Button quitGameButton = new Button("Quit");
+
+        VBox vBox = new VBox(newGameButton, highScoresButton, quitGameButton);
+        vBox.setTranslateX(400);
+        vBox.setTranslateY(165);
+        vBox.setSpacing(5);
+        root.getChildren().add(vBox);
+
+        newGameButton.setOnMouseClicked(mouseEvent -> {
+            vBox.setVisible(false);
+            newGame();
+        });
+
+        highScoresButton.setOnMouseClicked(mouseEvent -> {
+            System.out.println("high scores");
+        });
+
+        quitGameButton.setOnMouseClicked(mouseEvent -> {
+            Platform.exit();
+            System.exit(0);
+        });
+
+    }
+
+
+
 
     public void initialize() throws InterruptedException {
 
-        uiRefresh.setCycleCount((Timeline.INDEFINITE));
-        uiRefresh.play();
+//        newGame();
 
+        container.setVisible(false);
 
-        GameControl.spawnEggs(container);
+        welcomeScreen();
 
 
 

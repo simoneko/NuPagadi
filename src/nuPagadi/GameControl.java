@@ -1,6 +1,13 @@
 package nuPagadi;
 
+import javafx.application.Platform;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.awt.*;
 
@@ -35,6 +42,20 @@ public class GameControl {
             }
 
             GameControl.setTotalScore();
+
+            Platform.runLater(() -> {
+                Stage gameOverStage = new Stage();
+                gameOverStage.initModality(Modality.APPLICATION_MODAL);
+//            gameOverStage.initOwner((Window) Window.getWindows());
+                VBox popUpBox = new VBox();
+                popUpBox.getChildren().add(new Text("You lost"));
+                Scene scene = new Scene(popUpBox, 300, 200);
+                gameOverStage.setScene(scene);
+                gameOverStage.show();
+            });
+
+
+
 
         });
 
@@ -85,4 +106,7 @@ public class GameControl {
         GameControl.totalScore = GameControl.getEggsCought() + GameControl.getTimePlayed();
         System.out.println(GameControl.totalScore);
     }
+
+
+
 }
