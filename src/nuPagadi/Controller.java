@@ -12,22 +12,22 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -85,11 +85,11 @@ public class Controller {
         wolfLabel.setStyle(wolf.getWolfStyle());
     }
 
-    private void newGame(){
+    private void newGame(StackPane root){
         container.setVisible(true);
         uiRefresh.setCycleCount((Timeline.INDEFINITE));
         uiRefresh.play();
-        GameControl.spawnEggs(container);
+        GameControl.spawnEggs(container, root);
     }
 
     private void welcomeScreen(){
@@ -105,11 +105,15 @@ public class Controller {
 
         newGameButton.setOnMouseClicked(mouseEvent -> {
             vBox.setVisible(false);
-            newGame();
+            newGame(root);
         });
 
         highScoresButton.setOnMouseClicked(mouseEvent -> {
-            System.out.println("high scores");
+            try {
+                GameControl.displayHighScoreList();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         quitGameButton.setOnMouseClicked(mouseEvent -> {
