@@ -1,43 +1,21 @@
 package nuPagadi;
 
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import javax.swing.*;
 import java.io.IOException;
-import java.sql.Time;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Controller {
 
     @FXML
     private Label wolfLabel;
-    @FXML
-    private AnchorPane anch;
     @FXML
     private Label lifes;
     @FXML
@@ -54,13 +32,10 @@ public class Controller {
     private Wolf wolf = new Wolf();
 
 
-    private Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent actionEvent) {
+    private Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
 
-            if(GameControl.getNumberOfLives() > 0)
-                GameControl.addSecond();
-        }
+        if(GameControl.getNumberOfLives() > 0)
+            GameControl.addSecond();
     }));
 
     private Timeline uiRefresh = new Timeline(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
@@ -123,21 +98,11 @@ public class Controller {
 
     }
 
-
-
-
-    public void initialize() throws InterruptedException {
-
-//        newGame();
+    public void initialize() {
 
         container.setVisible(false);
-
         welcomeScreen();
 
-
-
     }
-
-
 
 }

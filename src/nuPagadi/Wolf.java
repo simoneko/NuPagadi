@@ -5,8 +5,6 @@ public class Wolf {
     private static Position wolfPosition;
     private String wolfStyle;
 
-
-
     public Wolf(){
         wolfPosition = Position.LEFT_DOWN;
         this.wolfStyle = "-fx-graphic: url(\"./sprites/wolf-left-down.png\")";
@@ -39,8 +37,6 @@ public class Wolf {
     public String getWolfStyle() {
         return wolfStyle;
     }
-
-
 
     public static Position getWolfPosition() {
         return wolfPosition;

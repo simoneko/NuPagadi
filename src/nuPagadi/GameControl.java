@@ -1,24 +1,17 @@
 package nuPagadi;
 
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.scene.control.Label;
-
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -80,7 +73,6 @@ public class GameControl {
                 if(keyEvent.getCode().equals(KeyCode.ENTER)) {
                     String userNameInput = enterUserName.getText().replace(" ", "" );
                     if(userNameInput.length() >= 3){
-                        System.out.println(userNameInput);
                         try {
                             saveHighScoreFile(userNameInput);
                             popUpBox.setVisible(false);
@@ -111,7 +103,7 @@ public class GameControl {
 
     }
 
-    public static ArrayList<HighScore> loadHighScoreFile () throws IOException {
+    private static ArrayList<HighScore> loadHighScoreFile() throws IOException {
 
         ArrayList<HighScore> lista = new ArrayList<>();
         File file = new File("src/highScores.txt");
@@ -133,12 +125,10 @@ public class GameControl {
                     for(int j = start; j < end; j++){
                         points.append(st.charAt(j));
                     }
-//                    System.out.print(name + " " + points);
                     lista.add(new HighScore(name.toString(), Integer.parseInt(points.toString())));
                     break;
                 }
             }
-//            System.out.println();
         }
 
         return lista;
@@ -196,11 +186,11 @@ public class GameControl {
         GameControl.eggsCought = eggsCought;
     }
 
-    public static int getTimePlayed() {
+    private static int getTimePlayed() {
         return timePlayed;
     }
 
-    public static int getTotalScore() {
+    private static int getTotalScore() {
         return totalScore;
     }
 
@@ -208,7 +198,5 @@ public class GameControl {
         GameControl.totalScore = GameControl.getEggsCought() + GameControl.getTimePlayed();
         System.out.println(GameControl.totalScore);
     }
-
-
 
 }

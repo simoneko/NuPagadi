@@ -18,7 +18,6 @@ public class Egg {
         this.eggPosition = eggPosition;
     }
 
-
     public static void eggRun(BorderPane container){
 
         Thread t = new Thread(() -> {
@@ -42,7 +41,6 @@ public class Egg {
 
             if(Wolf.getWolfPosition() != egg.getEggPosition()){
                 GameControl.setNumberOfLives(GameControl.getNumberOfLives() - 1);
-
                 egg.eggFalls(egg.getEggPosition(), eggEllipse);
 
                 try {
